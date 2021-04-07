@@ -21,5 +21,20 @@ namespace BusinessLogic.Test
 			Assert.AreEqual(name, newPlayer.Name);
 		}
 
+		
+		[TestMethod]
+		[ExpectedException(typeof(InvalidPlayerDataException))]
+		public void NameTooLongTest()
+		{
+			string longName = "";
+			for (int i = 0; i < 16; i++)
+			{
+				longName += "A";
+			}
+
+			Player newPlayer = new Player(longName);
+		}
+
+
 	}
 }
