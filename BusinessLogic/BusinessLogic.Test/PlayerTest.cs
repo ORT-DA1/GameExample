@@ -6,6 +6,16 @@ namespace BusinessLogic.Test
 	[TestClass]
 	public class PlayerTest
 	{
+		Player validPlayer;
+		string validName;
+
+		[TestInitialize]
+		public void TestSetUp()
+		{
+			validName = "pepepe";
+			validPlayer = new Player(validName);
+		}
+
 		[TestMethod]
 		public void CreatePlayerTest()
 		{
@@ -16,9 +26,7 @@ namespace BusinessLogic.Test
 		[TestMethod]
 		public void CreatePlayerWithNameTest()
 		{
-			string name = "pepepe";
-			Player newPlayer = new Player(name);
-			Assert.AreEqual(name, newPlayer.Name);
+			Assert.AreEqual(validName, validPlayer.Name);
 		}
 
 		
@@ -41,6 +49,14 @@ namespace BusinessLogic.Test
 		{
 			var shortName = "abc";
 			var player = new Player(shortName);
+		}
+
+
+		[TestMethod]
+		public void GetHealthPointsTest()
+		{
+			Assert.AreEqual(100, validPlayer.Health);
+
 		}
 
 	}
