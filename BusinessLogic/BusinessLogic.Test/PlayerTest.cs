@@ -1,4 +1,5 @@
 ﻿using System;
+using BusinessLogic.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BusinessLogic.Test
@@ -6,6 +7,7 @@ namespace BusinessLogic.Test
 	[TestClass]
 	public class PlayerTest
 	{
+
 		Player validPlayer;
 		string validName;
 
@@ -35,7 +37,7 @@ namespace BusinessLogic.Test
 		public void NameTooLongTest()
 		{
 			string longName = "";
-			for (int i = 0; i < 16; i++)
+			for (int i = 0; i < Player.MAX_NAME_LENGTH + 1; i++)
 			{
 				longName += "A";
 			}
@@ -47,7 +49,11 @@ namespace BusinessLogic.Test
 		[ExpectedException(typeof(InvalidPlayerDataException))]
 		public void NameTooShortTest()
 		{
-			var shortName = "abc";
+			string shortName = "";
+			for (int i = 0; i < Player.MIN_NAME_LENGTH - 1; i++)
+			{
+				shortName += "A";
+			}
 			var player = new Player(shortName);
 		}
 
@@ -55,7 +61,7 @@ namespace BusinessLogic.Test
 		[TestMethod]
 		public void GetHealthPointsTest()
 		{
-			Assert.AreEqual(100, validPlayer.Health);
+			Assert.AreEqual(Player.INITIAL_HEALTH, validPlayer.Health);
 
 		}
 
