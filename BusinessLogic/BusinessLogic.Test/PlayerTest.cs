@@ -10,6 +10,7 @@ namespace BusinessLogic.Test
 
 		Player validPlayer;
 		string validName;
+		readonly Team neutralTeam = new Team("Neutral");
 
 		[TestInitialize]
 		public void TestSetUp()
@@ -57,7 +58,6 @@ namespace BusinessLogic.Test
 			var player = new Player(shortName);
 		}
 
-
 		[TestMethod]
 		public void GetHealthPointsTest()
 		{
@@ -65,5 +65,25 @@ namespace BusinessLogic.Test
 
 		}
 
+		[TestMethod]
+		public void SetTeamTest()
+		{
+			var team = new Team("myteam");
+			validPlayer.Team = team;
+			Assert.AreEqual(team, validPlayer.Team);
+		}
+
+		[TestMethod]
+		public void GetTeamTest()
+		{
+			var playerWithoutTeam = new Player(validName);
+			Assert.IsNotNull(playerWithoutTeam.Team);
+		}
+
+		[TestMethod]
+		public void GetNeutralTeamTest()
+		{
+			Assert.AreEqual(validPlayer.Team, neutralTeam);
+		}
 	}
 }

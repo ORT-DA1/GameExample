@@ -21,6 +21,7 @@ namespace BusinessLogic
 
 		public string Name { get => name; private set => SetName(value); }
 		public int Health { get; private set; }
+		public Team Team { get; set; }
 
 		private string name;
 		private void SetName(string newName)
