@@ -16,7 +16,7 @@ namespace BusinessLogic.Test
 		[TestMethod]
 		public void CreatePlayerWithNameTest()
 		{
-			string name = "pepe";
+			string name = "pepepe";
 			Player newPlayer = new Player(name);
 			Assert.AreEqual(name, newPlayer.Name);
 		}
