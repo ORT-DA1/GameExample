@@ -1,11 +1,14 @@
-﻿using System;
+﻿using BusinessLogic.Exceptions;
+using System;
 
 namespace BusinessLogic
 {
 	public class Player
 	{
-		private readonly int MAX_NAME_LENGTH = 15;
-		private readonly int MIN_NAME_LENGTH = 5;
+		public static readonly int MAX_NAME_LENGTH = 15;
+		public static readonly int MIN_NAME_LENGTH = 5;
+		public static readonly int INITIAL_HEALTH = 100;
+
 		public Player()
 		{
 		}
@@ -13,7 +16,7 @@ namespace BusinessLogic
 		public Player(string name)
 		{
 			Name = name;
-			Health = 100;
+			Health = INITIAL_HEALTH;
 		}
 
 		public string Name { get => name; private set => SetName(value); }
