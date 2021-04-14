@@ -35,6 +35,13 @@ namespace BusinessLogic.Test
 			Player newPlayer = new Player(longName);
 		}
 
+		[TestMethod]
+		[ExpectedException(typeof(InvalidPlayerDataException))]
+		public void NameTooShortTest()
+		{
+			var shortName = "abc";
+			var player = new Player(shortName);
+		}
 
 	}
 }
