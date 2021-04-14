@@ -27,6 +27,13 @@ namespace BusinessLogic.Test
 		}
 
 		[TestMethod]
+		public void DefaultNameTest()
+		{
+			Player newPlayer = new Player();
+			Assert.AreEqual(newPlayer.Name, "Default name");
+		}
+
+		[TestMethod]
 		public void CreatePlayerWithNameTest()
 		{
 			Assert.AreEqual(validName, validPlayer.Name);

@@ -47,5 +47,14 @@ namespace BusinessLogic.Test
 			Assert.AreNotEqual(team1, team2);
 		}
 
+		[TestMethod]
+		public void DefaultTeamTest()
+		{
+			var neutralTeam = new Team("Neutral");
+			Assert.IsNotNull(Team.NEUTRAL_TEAM);
+			Assert.AreEqual(Team.NEUTRAL_TEAM, neutralTeam);
+		}
+
+
 	}
 }

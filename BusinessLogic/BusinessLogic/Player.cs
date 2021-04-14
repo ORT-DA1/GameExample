@@ -11,12 +11,16 @@ namespace BusinessLogic
 
 		public Player()
 		{
+			Name = "Default name";
+			Health = INITIAL_HEALTH;
+			Team = Team.NEUTRAL_TEAM;
 		}
 
 		public Player(string name)
 		{
 			Name = name;
 			Health = INITIAL_HEALTH;
+			Team = Team.NEUTRAL_TEAM;
 		}
 
 		public string Name { get => name; private set => SetName(value); }
