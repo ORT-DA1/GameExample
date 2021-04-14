@@ -13,9 +13,11 @@ namespace BusinessLogic
 		public Player(string name)
 		{
 			Name = name;
+			Health = 100;
 		}
 
 		public string Name { get => name; private set => SetName(value); }
+		public int Health { get; private set; }
 
 		private string name;
 		private void SetName(string newName)
